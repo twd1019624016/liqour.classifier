@@ -1,5 +1,7 @@
 package classifier.detection;
 
+import java.net.URL;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -16,7 +18,12 @@ public class ClassifierFacadeTest {
 	public void test() {
 
 
-		ClassifierFacade liqourClassifier = ClassifierFacade.getInstanceClassifierFacade("C://Users//LPC69//Desktop//bz-3.12-1.csv");
+/*		ClassifierFacade liqourClassifier = ClassifierFacade.getInstanceClassifierFacade("bz-3.12-1.csv");
+*/		
+	 URL resource = ClassifierFacadeTest.class.getClassLoader().getResource("bz-3.12-1.csv");
+	 System.out.println(resource);
+	ClassifierFacade liqourClassifier = ClassifierFacade.getInstanceClassifierFacade(resource.getPath());
+
 		
 		double voltage256 = 0.0256011;
 		double voltage280 = 0.0386016;
