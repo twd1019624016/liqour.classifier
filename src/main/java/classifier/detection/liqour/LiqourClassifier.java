@@ -101,7 +101,9 @@ public class LiqourClassifier implements Classifier<LiqourDetectRequest, LiqourD
 		double voltage265nm = (request.getVoltage265nm() - sample.getVoltage265nmAvg()) / sample.getVoltage265nmStd();
 		double voltage280nm = (request.getVoltage280nm() - sample.getVoltage280nmAvg()) / sample.getVoltage280nmStd();
 		double voltage310nm = (request.getVoltage310nm() - sample.getVoltage310nmAvg()) / sample.getVoltage310nmStd();
-		// 4、 计算欧氏距离，d；( 3 改为 /12--->48--->12->48)
+
+		// 4、 计算欧氏距离，d；( 3 改为 /12--->48--->12--->48)
+
 		double d = Math.sqrt((Math.pow(voltage265nm, 2) + Math.pow(voltage280nm, 2) + Math.pow(voltage310nm, 2)) / 48);
 		// 5、 换算相似度。L=1-
 		// (inverseNormPDF(d)*2-1)^p。这里的inverseNormalPDF是正态分布函数,P暂定6，会调整
